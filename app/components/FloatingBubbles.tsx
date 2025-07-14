@@ -4,15 +4,17 @@ import { useEffect, useState } from 'react'
 
 export default function FloatingBubbles() {
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
-  const [bubbles, setBubbles] = useState<{ 
-    id: number; 
-    size: number; 
-    initialX: number; 
-    initialY: number; 
-    color: string; 
-    duration: number; 
-    delay: number; 
-  }[]>([]);
+  const [bubbles, setBubbles] = useState<bubbleType[]>([]);
+
+  interface bubbleType {
+      id: number; 
+      size: number; 
+      initialX: number; 
+      initialY: number; 
+      color: string; 
+      duration: number; 
+      delay: number; 
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -50,7 +52,7 @@ export default function FloatingBubbles() {
 
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-      {bubbles.map((bubble: any) => (
+      {bubbles.map((bubble: bubbleType) => (
         <motion.div
           key={bubble.id}
           className={`absolute rounded-full ${bubble.color} border backdrop-blur-sm`}

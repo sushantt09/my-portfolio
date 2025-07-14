@@ -1,9 +1,6 @@
 "use client"; // This line is necessary for Next.js to treat this component as a client component
 import React from 'react';
 import Navigation from './Navigation';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperclip } from '@fortawesome/free-solid-svg-icons';
-import { faFile } from '@fortawesome/free-regular-svg-icons';
 import Contact from './Contact';
 import Projects from './Project';
 import Skills from './Skills';

@@ -26,15 +26,15 @@ const About = () => {
                 <div className='grid grid-cols-3 gap-5'>
                     <div className='bg-gradient-to-r from-cyan-600 to-cyan-600 hover:to-purple-600 p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer'>
                         <h3 className='text-xl font-bold mb-2'>EXPERIENCE</h3>
-                        <p>Almost 2 years (Ans Commerce - Flipkart group co.)</p>
+                        <p>{"Almost 2 years (Ans Commerce - Flipkart group co.)"}</p>
                     </div>
                     <div className='bg-gradient-to-r from-cyan-600 to-cyan-600 hover:to-purple-600 p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer'>
                         <h3 className='text-xl font-bold mb-2'>GRADUATION</h3>
-                        <p>Bachelor's in Computer Science</p>
+                        <p>{"Bachelor's in Computer Science"}</p>
                     </div>
                     <div className='bg-gradient-to-r from-cyan-600 to-cyan-600 hover:to-purple-600 p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer'>
                         <h3 className='text-xl font-bold mb-2'>POST GRADUATION</h3>
-                        <p>Master's of Computer Application</p>
+                        <p>{"Master's of Computer Application"}</p>
                     </div>
                 </div>    
             </div>
