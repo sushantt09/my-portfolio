@@ -20,7 +20,7 @@ const Projects = () => {
                                 className='ml-2 text-blue-200 hover:text-white hover:scale-110 transition-all duration-200'
                             ><FontAwesomeIcon icon={faPaperclip} /></button>
                         </div>    
-                        <p>(Nextjs, Reactjs, Redux, tailwind)</p>
+                        <p>In progress not functional (Nextjs, Reactjs, Redux, tailwind)</p>
                     </div>
                     <div className='bg-gradient-to-r from-cyan-600 to-cyan-600 hover:to-purple-600 p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer'>
                         <img src='/images/cryptoHome.png' alt='Portfolio' className='w-full h-48 object-cover rounded-lg mb-4' />
