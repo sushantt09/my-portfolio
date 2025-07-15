@@ -1,9 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faAddressBook } from '@fortawesome/free-solid-svg-icons';
 
 const Contact = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: ''
+    });
+    const [status, setStatus] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    const handleChange = (e: any) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
+        setLoading(true);
+        setStatus('');
+
+        try {
+            const response = await fetch('https://formspree.io/f/xvgqooyo', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                setStatus('success');
+                setFormData({ name: '', email: '', message: '' });
+            } else {
+                setStatus('error');
+            }
+        } catch (error) {
+            setStatus('error');
+        } finally {
+            setLoading(false);
+            setTimeout(()=>{
+                setStatus("");
+            },5000);
+        }
+    };
+
     return (
         <section id="contact">
             <div className='mt-10 md:mt-20 mb-20 md:mb-30 pt-4 md:pt-8'>
@@ -24,15 +69,26 @@ const Contact = () => {
                     </div>
                     <div className='mt-10 md:ml-8 md:mt-0 w-full md:w-1/2 border-2 border-slate-600 p-6 rounded-lg bg-slate-900 shadow-lg'>
                         <p className='text-2xl'>CONTACT FORM</p>
-                        <form className='flex flex-col gap-4 mt-4 ml-8'>
+                        <form onSubmit={handleSubmit} className='flex flex-col gap-4 mt-4 ml-8'>
                             <label className='text-lg text-slate-200'>Name</label>
-                            <input type='text' placeholder='Your Name' className='p-2 rounded-lg bg-slate-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500' />
+                            <input type='text' id='name' name='name' placeholder='Your Name' required value={formData?.name} onChange={(e:any)=>handleChange(e)} className='p-2 rounded-lg bg-slate-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500' />
                             <label className='text-lg text-slate-200'>Email</label>
-                            <input type='email' placeholder='Your Email' className='p-2 rounded-lg bg-slate-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500' />
+                            <input type='email' id="email" name="email" placeholder='Your Email' required value={formData?.email} onChange={(e:any)=>handleChange(e)} className='p-2 rounded-lg bg-slate-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500' />
                             <label className='text-lg text-slate-200'>Message</label>
-                            <textarea placeholder='Your Message' className='p-2 rounded-lg bg-slate-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 h-32'></textarea>
-                            <button type='submit' className='bg-cyan-500 w-min my-4 py-3 px-8 rounded-lg text-slate-200 text-center hover:scale-105 transition-transform duration-300 hover:ring-4 hover:ring-violet-400 hover:ring-offset-2 hover:ring-offset-cyan-300'>Send</button>
+                            <textarea  id="message" rows={5} name="message" placeholder='Your Message' required value={formData?.message} onChange={(e:any)=>handleChange(e)} className='p-2 rounded-lg bg-slate-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 h-32'></textarea>
+                            <button type='submit' disabled={loading} className='bg-cyan-500 w-min my-4 py-3 px-8 rounded-lg text-slate-200 text-center hover:scale-105 transition-transform duration-300 hover:ring-4 hover:ring-violet-400 hover:ring-offset-2 hover:ring-offset-cyan-300'>{loading ? 'loading...' : 'Submit'}</button>
                         </form>
+                        {status === 'success' && (
+                            <div className="mt-4 p-4 bg-green-500/20 border border-green-500/50 rounded-lg">
+                                <p className="text-green-200 text-center">Message sent successfully!</p>
+                            </div>
+                        )}
+
+                        {status === 'error' && (
+                            <div className="mt-4 p-4 bg-red-500/20 border border-red-500/50 rounded-lg">
+                                <p className="text-red-200 text-center">Failed to send message. Please try again.</p>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
