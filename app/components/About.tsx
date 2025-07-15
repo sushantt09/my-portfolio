@@ -5,9 +5,9 @@ import { faFile } from '@fortawesome/free-regular-svg-icons';
 const About = () => {
     return (
         <section id="about">
-            <div className='mt-20 mb-20 pt-8'>
-                <p className='mt-5 mb-5 text-5xl -tracking-tighter font-bold text-left w-fit bg-blend-multiply bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent'>About Me</p>
-                <p className='text-lg text-slate-200 mt-10 mb-10 w-3/4'>
+            <div className='mt-8 sm:mt-12 md:mt-20 mb-10 md:mb-20 pt-4 md:pt-8'>
+                <p className='mt-5 mb-5 text-2xl sm:text-3xl md:text-5xl -tracking-tighter font-bold text-left w-fit bg-blend-multiply bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent'>About Me</p>
+                <p className='text-xsm sm:text-base md:text-lg text-slate-200 mt-10 mb-10 md:w-3/4'>
                     <span className='block mb-2'>I am a passionate Frontend Developer based in Delhi, India.</span>
                     <span className='block mb-2'>I have a keen eye for design and a love for creating
                     intuitive user experiences. I specialize in React, JavaScript, HTML/CSS, and have hands-on
@@ -23,17 +23,17 @@ const About = () => {
                         <FontAwesomeIcon icon={faFile} />
                     </span>
                 </button>                        
-                <div className='grid grid-cols-3 gap-5'>
-                    <div className='bg-gradient-to-r from-cyan-600 to-cyan-600 hover:to-purple-600 p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer'>
-                        <h3 className='text-xl font-bold mb-2'>EXPERIENCE</h3>
+                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5'>
+                    <div className='mb-2 sm:mb-0 bg-gradient-to-r from-cyan-600 to-cyan-600 hover:to-purple-600 p-4 md:p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer'>
+                        <h3 className='text-lg sm:text-xl font-bold mb-2'>EXPERIENCE</h3>
                         <p>{"Almost 2 years (Ans Commerce - Flipkart group co.)"}</p>
                     </div>
-                    <div className='bg-gradient-to-r from-cyan-600 to-cyan-600 hover:to-purple-600 p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer'>
-                        <h3 className='text-xl font-bold mb-2'>GRADUATION</h3>
+                    <div className='mb-2 sm:mb-0 bg-gradient-to-r from-cyan-600 to-cyan-600 hover:to-purple-600 p-4 md:p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer'>
+                        <h3 className='text-lg sm:text-xl font-bold mb-2'>GRADUATION</h3>
                         <p>{"Bachelor's in Computer Science"}</p>
                     </div>
-                    <div className='bg-gradient-to-r from-cyan-600 to-cyan-600 hover:to-purple-600 p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer'>
-                        <h3 className='text-xl font-bold mb-2'>POST GRADUATION</h3>
+                    <div className='mb-2 sm:mb-0 bg-gradient-to-r from-cyan-600 to-cyan-600 hover:to-purple-600 p-4 md:p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer'>
+                        <h3 className='text-lg sm:text-xl font-bold mb-2'>POST GRADUATION</h3>
                         <p>{"Master's of Computer Application"}</p>
                     </div>
                 </div>    

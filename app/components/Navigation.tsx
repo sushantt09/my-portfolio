@@ -50,11 +50,11 @@ const Navigation = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
       className='bg-blend-multiply bg-gradient-to-r from-cyan-750 to-purple-600
-                text-white p-6 shadow-lg flex mx-10 mt-5 rounded-lg'
+                text-white p-2 sm:p-4 md:p-6 shadow-lg flex mx-2 sm:mx-4 md:mx-6 lg:mx-10 mt-1 sm:mt-3 md:mt-4 lg:mt-5 rounded-lg'
     >
       <motion.h1 
-        className='text-xl font-bold'
-        whileHover={{ scale: 1.05 }}
+        className='text-xs sm:text-sm md:text-base lg:text-xl font-bold'
+        whileHover={{ scale: 1.05 }} 
       >
         SUSHANT SHARMA
       </motion.h1>
@@ -67,12 +67,12 @@ const Navigation = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             className={`
-              text-lg font-medium transition-all duration-300 relative
+              text-xs sm:text-sm md:text-base lg-text-lg font-medium transition-all duration-300 relative
               ${activeSection === item.id 
                 ? 'text-cyan-200' 
                 : 'text-white hover:text-cyan-200'
               }
-              px-2 py-1 rounded-sm
+              px-0 md:px-2 py-1 rounded-sm
             `}
           >
             {item.label}
