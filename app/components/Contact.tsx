@@ -39,7 +39,8 @@ const Contact = () => {
             } else {
                 setStatus('error');
             }
-        } catch (_error) { //solution for error: 'underscore' prefix marked as intentionally unused //Error: 'error' is defined but never used.  @typescript-eslint/no-unused-vars
+        } catch (error) { //Error: 'error' is defined but never used.  @typescript-eslint/no-unused-vars
+            void error;
             setStatus('error');
         } finally {
             setLoading(false);
