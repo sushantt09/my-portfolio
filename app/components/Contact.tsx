@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, FormEvent } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faAddressBook } from '@fortawesome/free-solid-svg-icons';
@@ -12,14 +12,14 @@ const Contact = () => {
     const [status, setStatus] = useState('');
     const [loading, setLoading] = useState(false);
 
-    const handleChange = (e: any) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value
         });
     };
 
-    const handleSubmit = async (e: any) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
         setStatus('');
@@ -39,7 +39,7 @@ const Contact = () => {
             } else {
                 setStatus('error');
             }
-        } catch (error) {
+        } catch (_error) { //solution for error: 'underscore' prefix marked as intentionally unused //Error: 'error' is defined but never used.  @typescript-eslint/no-unused-vars
             setStatus('error');
         } finally {
             setLoading(false);
@@ -69,13 +69,13 @@ const Contact = () => {
                     </div>
                     <div className='mt-10 md:ml-8 md:mt-0 w-full md:w-1/2 border-2 border-slate-600 p-6 rounded-lg bg-slate-900 shadow-lg'>
                         <p className='text-2xl'>CONTACT FORM</p>
-                        <form onSubmit={handleSubmit} className='flex flex-col gap-4 mt-4 ml-8'>
+                        <form onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)} className='flex flex-col gap-4 mt-4 ml-8'>
                             <label className='text-lg text-slate-200'>Name</label>
-                            <input type='text' id='name' name='name' placeholder='Your Name' required value={formData?.name} onChange={(e:any)=>handleChange(e)} className='p-2 rounded-lg bg-slate-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500' />
+                            <input type='text' id='name' name='name' placeholder='Your Name' required value={formData?.name} onChange={(e: React.ChangeEvent<HTMLInputElement>)=>handleChange(e)} className='p-2 rounded-lg bg-slate-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500' />
                             <label className='text-lg text-slate-200'>Email</label>
-                            <input type='email' id="email" name="email" placeholder='Your Email' required value={formData?.email} onChange={(e:any)=>handleChange(e)} className='p-2 rounded-lg bg-slate-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500' />
+                            <input type='email' id="email" name="email" placeholder='Your Email' required value={formData?.email} onChange={(e:React.ChangeEvent<HTMLInputElement>)=>handleChange(e)} className='p-2 rounded-lg bg-slate-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500' />
                             <label className='text-lg text-slate-200'>Message</label>
-                            <textarea  id="message" rows={5} name="message" placeholder='Your Message' required value={formData?.message} onChange={(e:any)=>handleChange(e)} className='p-2 rounded-lg bg-slate-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 h-32'></textarea>
+                            <textarea  id="message" rows={5} name="message" placeholder='Your Message' required value={formData?.message} onChange={(e:React.ChangeEvent<HTMLTextAreaElement>)=>handleChange(e)} className='p-2 rounded-lg bg-slate-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 h-32'></textarea>
                             <button type='submit' disabled={loading} className='bg-cyan-500 w-min my-4 py-3 px-8 rounded-lg text-slate-200 text-center hover:scale-105 transition-transform duration-300 hover:ring-4 hover:ring-violet-400 hover:ring-offset-2 hover:ring-offset-cyan-300'>{loading ? 'loading...' : 'Submit'}</button>
                         </form>
                         {status === 'success' && (
