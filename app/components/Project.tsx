@@ -22,7 +22,7 @@ const Projects = () => {
             <div className='mt-16 pt-8 pb-4'>
                 <p className='mt-14 md:mt-20 mb-30 pb-10 text-2xl md:text-3xl lg:text-5xl -tracking-tighter font-bold text-left w-fit bg-blend-multiply bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent'>Projects</p>
                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5 mt-4 md:mt-8'>
-                    {projectData.map((data: Project,index: number)=> {
+                    {projectData.map((data: Project)=> {
                         return (
                             <div key={data.id} className='bg-gradient-to-r from-cyan-600 to-cyan-600 hover:to-purple-600 p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer'>
                                 <Image width={400} height={400} src={data.imgSrc} alt='Portfolio' className='w-full h-48 object-cover rounded-lg mb-4' />
