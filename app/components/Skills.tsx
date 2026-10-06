@@ -14,11 +14,11 @@ const Skills = () => {
                     </div>
                     <div className='bg-gradient-to-r from-cyan-600 to-cyan-600 hover:to-purple-600 p-4 md:p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer'>
                         <h3 className='text-lg sm:text-xl font-bold mb-2'>JAVASCRIPT/TYPESCRIPT</h3>
-                        <p>Intermediate</p>
+                        <p>Professional</p>
                     </div>
                     <div className='bg-gradient-to-r from-cyan-600 to-cyan-600 hover:to-purple-600 p-4 md:p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer'>
                         <h3 className='text-lg sm:text-xl font-bold mb-2'>REACTJS</h3>
-                        <p>Intermediate</p>
+                        <p>Professional</p>
                     </div>
                     <div className='bg-gradient-to-r from-cyan-600 to-cyan-600 hover:to-purple-600 p-4 md:p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer'>
                         <h3 className='text-lg sm:text-xl font-bold mb-2'>NEXTJS</h3>
