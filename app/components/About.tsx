@@ -17,7 +17,7 @@ const About = () => {
                     </span>
                 </p>
                 <button className='mb-10 bg-cyan-500 w-min py-4 px-5 rounded-lg text-slate-200 text-center hover:scale-105 transition-transform duration-300 hover:ring-4 hover:ring-violet-400 hover:ring-offset-2 hover:ring-offset-cyan-300 flex items-center gap-2'
-                onClick={() => window.open('https://drive.google.com/file/d/1XHfAiWcEPNlmmRnage2BLQlsAXE0V6D1/view?usp=drive_link', '_blank')}>
+                onClick={() => window.open('https://drive.google.com/file/d/13i2Bv31OXnFHutsJwlmb_y1ZLCHavq2a/view?usp=drive_link', '_blank')}>
                     Resume
                     <span className='w-4 h-4'>
                         <FontAwesomeIcon icon={faFile} />
